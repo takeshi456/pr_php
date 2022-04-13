@@ -1,12 +1,14 @@
 {
     "name": "makloj/pr_php",
-    "require": {
-        "phpunit/phpunit": "^9.5"
-    },
     "authors": [
         {
             "name": "makloj",
             "email": "ysu.take7@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "prphp\\": "src/"
+        }
+    }
 }
