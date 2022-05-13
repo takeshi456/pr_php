@@ -2,6 +2,8 @@
 
 namespace prphp\lesson1;
 
+use prphp\lesson1\Pair;
+
 class ArrayUtil
 {
     public static function eventsOf(array $array): array
@@ -20,22 +22,16 @@ class ArrayUtil
         return $array;
     }
 
-    public static function zip(array $array1,array $array2): array
+    public static function zip(array $array1, array $array2): array
     {
+        $num = min(count($array1), count($array2));
         $array = [];
-        for($i = 0; $i < ArrayUtil::culcLoopNum($array1,$array2); $i++) {
-            $array[] = '('.$array1[$i].','.$array2[$i].')';
+        for ($i = 0; $i < $num; $i++) {
+             $array[] = new Pair($array1[$i],$array2[$i]);
         }
         return $array;
-
     }
 
-    public static function culcLoopNum(array $array1,array $array2):int
-    {
-        if(count($array1) >= count($array2)) {
-            return count($array2);
-        }
-        return count($array1);
-    }
+    function
 
 }
