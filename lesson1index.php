@@ -4,8 +4,8 @@ require_once "vendor/autoload.php";
 use prphp\lesson1\Pair;
 use prphp\lesson1\ArrayUtil;
 
-$pair1 = new Pair(1,2);
-$pair2 = new Pair(3,4);
+$pair1 = new Pair(1, 2);
+$pair2 = new Pair(3, 4);
 //
 //echo $pair1->first();
 //echo $pair1->second();
@@ -26,12 +26,18 @@ $pair2 = new Pair(3,4);
 //echo implode(',', $zip1), PHP_EOL; // [(1,2), (2,3), (3,4)]
 //echo implode(',', $zip2), PHP_EOL; // [(1,10), (2,9)]
 
-$factors1 = ArrayUtil::factors(15);
-$factors2 = ArrayUtil::factors(7);
+//$factors1 = ArrayUtil::factors(15);
+//$factors2 = ArrayUtil::factors(7);
+//
+//echo implode(',', $factors1), PHP_EOL; // [1, 3, 5, 15]
+//echo implode(',', $factors2), PHP_EOL; // [1, 7]
 
-echo implode(',', $factors1), PHP_EOL; // [1, 3, 5, 15]
-echo implode(',', $factors2), PHP_EOL; // [1, 7]
+//$perfects = ArrayUtil::perfects(500); // [6, 28, 496]
+//echo implode(',',$perfects);
 
+
+$pairs = ArrayUtil::pairs([1, 2, 3, 4,5]);
+echo implode(',', $pairs);
 //php 8実行コマンド
 //docker run --rm -v `pwd`:/app -w /app php:8.0-rc php
 //$k = fn ($x,$y) => $x + $y;

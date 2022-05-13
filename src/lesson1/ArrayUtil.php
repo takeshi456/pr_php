@@ -32,9 +32,23 @@ class ArrayUtil
         return $array;
     }
 
-    public static function factors(int $num1): array
+    public static function factors(int $arg): array
     {
-        return array_filter(range(1,$num1),fn($num2) => $num1 % $num2 === 0);
+        return array_filter(range(1, $arg), fn($num) => $arg % $num === 0);
+    }
+
+    public static function perfects(int $arg): array
+    {
+        return array_filter(range(1, $arg), fn($int) => array_sum(self::factors($int)) - $int === $int);
+    }
+
+    public static function pairs(array $argArray): array
+    {
+        $array = [];
+        for ($i = 0; $i < count($argArray) - 1; $i++) {
+            $array[] = new Pair($argArray[$i],$argArray[$i + 1]);
+        }
+        return $array;
     }
 
 }
