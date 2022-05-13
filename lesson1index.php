@@ -25,6 +25,13 @@ $pair2 = new Pair(3,4);
 //$zip2 = ArrayUtil::zip([1,2,3], [10,9]);  //[(1,10), (2,9)]
 //echo implode(',', $zip1), PHP_EOL; // [(1,2), (2,3), (3,4)]
 //echo implode(',', $zip2), PHP_EOL; // [(1,10), (2,9)]
+
+$factors1 = ArrayUtil::factors(15);
+$factors2 = ArrayUtil::factors(7);
+
+echo implode(',', $factors1), PHP_EOL; // [1, 3, 5, 15]
+echo implode(',', $factors2), PHP_EOL; // [1, 7]
+
 //php 8実行コマンド
 //docker run --rm -v `pwd`:/app -w /app php:8.0-rc php
 //$k = fn ($x,$y) => $x + $y;

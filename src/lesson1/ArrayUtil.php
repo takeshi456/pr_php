@@ -27,11 +27,14 @@ class ArrayUtil
         $num = min(count($array1), count($array2));
         $array = [];
         for ($i = 0; $i < $num; $i++) {
-             $array[] = new Pair($array1[$i],$array2[$i]);
+            $array[] = new Pair($array1[$i], $array2[$i]);
         }
         return $array;
     }
 
-    function
+    public static function factors(int $num1): array
+    {
+        return array_filter(range(1,$num1),fn($num2) => $num1 % $num2 === 0);
+    }
 
 }
