@@ -46,9 +46,24 @@ class ArrayUtil
     {
         $array = [];
         for ($i = 0; $i < count($argArray) - 1; $i++) {
-            $array[] = new Pair($argArray[$i],$argArray[$i + 1]);
+            $array[] = new Pair($argArray[$i], $argArray[$i + 1]);
         }
         return $array;
+    }
+
+    public static function sorted(array $array): bool
+    {
+        foreach (self::pairs($array) as $pairs) {
+            if ($pairs->first() >= $pairs->second()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static function potisions()
+    {
+
     }
 
 }

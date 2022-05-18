@@ -36,8 +36,12 @@ $pair2 = new Pair(3, 4);
 //echo implode(',',$perfects);
 
 
-$pairs = ArrayUtil::pairs([1, 2, 3, 4,5]);
-echo implode(',', $pairs);
+//$pairs = ArrayUtil::pairs([1, 2, 3, 4,5]);
+//echo implode(',', $pairs);
+$sorted1 = ArrayUtil::sorted([1,2,3,4]); // true
+$sorted2 =ArrayUtil::sorted([3,2,5,6]); // false
+var_dump($sorted1);
+var_dump($sorted2);
 //php 8実行コマンド
 //docker run --rm -v `pwd`:/app -w /app php:8.0-rc php
 //$k = fn ($x,$y) => $x + $y;
