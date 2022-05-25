@@ -42,13 +42,20 @@ class ArrayUtil
         return array_filter(range(1, $arg), fn($int) => array_sum(self::factors($int)) - $int === $int);
     }
 
+//    public static function pairs(array $argArray): array
+//    {
+//        $array = [];
+//        for ($i = 0; $i < count($argArray) - 1; $i++) {
+//            $array[] = new Pair($argArray[$i], $argArray[$i + 1]);
+//        }
+//        return $array;
+//    }
+
     public static function pairs(array $argArray): array
     {
-        $array = [];
-        for ($i = 0; $i < count($argArray) - 1; $i++) {
-            $array[] = new Pair($argArray[$i], $argArray[$i + 1]);
-        }
-        return $array;
+        return array_map(
+            fn(int $i) => new Pair($argArray[$i], $argArray[$i + 1]), range(0, count($argArray) - 1)
+        );
     }
 
     public static function sorted(array $array): bool
@@ -61,9 +68,37 @@ class ArrayUtil
         return true;
     }
 
-    public static function potisions()
+    /*
+    * @param int $int
+    * @param array $intArray
+    * @return array
+    */
+    public static function positions(int $int, array $intArray): array
     {
+        // (インデックス, 配列の値)
 
+        // (配列の値、引数値)
+
+        //        $replicate = self::replicate(count($intArray), $int);
+        //        $zip = self::zip($intArray, $replicate);
+        //        $positions = array_filter($zip, fn($zip) => $zip->first === $zip->second);
+        //        return array_keys($positions);
+
+        $range = range(0, count($intArray) - 1);
+
+        $pairs = self::zip($range, $intArray);
+
+        //intArray = [1, 3, 5, 1]
+        //paris => [(0,1), (1,3), (2,5), (3,1)]
+        //$int => 1
+
+        $filtered = array_filter($pairs, fn(Pair $pair) => $pair->second() === $int);
+
+        //filtered => [(0,1), (3,1)]
+
+        return array_map(fn(Pair $pair) => $pair->first(), $filtered);
+
+        // [0, 3]
     }
 
 }
