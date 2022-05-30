@@ -5,7 +5,7 @@ namespace prphp\lesson3;
 class Recipe
 {
     private string $food;
-    private int $calorie;
+    private float $calorie;
 
     /**
      * @param string $food

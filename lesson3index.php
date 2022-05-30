@@ -39,3 +39,30 @@ use prphp\lesson3\MenuSet;
 //var_dump($menuSet->getMenus()); // メニューの一覧を取得
 
 //問題4
+//$recipe1 = new Recipe("ハンバーグ", 200.5);
+//$recipe2 = new Recipe("目玉焼き", 120);
+//$recipe3 = new Recipe("大葉", 200.5);
+//$recipe4 = new Recipe("シャケ", 120);
+//$recipe5 = new Recipe("のり", 120);
+//$menu1 = new Menu("ハンバーグ弁当", "洋食", [$recipe1, $recipe2]);  // $r1と$r2はレシピインスタンスとする
+//$menu2 = new Menu("鮭弁当", "食", [$recipe3, $recipe4]); // $r3とr$4はレシピインスタンスとする
+//$menu3 = new Menu("のり弁当", "食", [$recipe4, $recipe5]); // $r4と$r5はレシピインスタンスとする
+//
+//$menuSet = new MenuSet([$menu1, $menu2, $menu3]);
+//$menus = $menuSet->getMenusByType("和食"); // $menusは、和食であるmenu2とmenu2のみのリスト
+////var_dump($menus);
+///
+
+//問題5
+//$recipe1 = new Recipe("ハンバーグ", 200.5);
+//$recipe2 = new Recipe("目玉焼き", 120);
+//$recipe3 = new Recipe("大葉", 200.5);
+//$recipe4 = new Recipe("シャケ", 10);
+//$recipe5 = new Recipe("のり", 120);
+//$menu1 = new Menu("ハンバーグ弁当", "洋食", [$recipe1, $recipe2]);  // $r1と$r2はレシピインスタンスとする
+//$menu2 = new Menu("鮭弁当", "和食", [$recipe3, $recipe4]); // $r3とr$4はレシピインスタンスとする
+//$menu3 = new Menu("のり弁当", "和食", [$recipe4, $recipe5]); // $r4と$r5はレシピインスタンスとする
+//
+//$menuSet = new MenuSet([$menu1, $menu2, $menu3]);
+//$menus = $menuSet->getMenusByCalorie(131); // $menusは、100カロリー以上のメニューのリスト
+//var_dump($menus);

@@ -22,4 +22,25 @@ class MenuSet
         return $this->menuSet;
     }
 
+
+    /**
+     * @param string $menuType
+     * @return array
+     */
+    public function getMenusByType(string $menuType): array
+    {
+        return array_filter($this->menuSet, fn($menu) => $menu->getType() === $menuType);
+    }
+
+    /**
+     * @param float $calorie
+     * @return array
+     */
+    public function getMenusByCalorie(float $calorie): array
+    {
+        return array_filter($this->menuSet,fn($menu) => $menu->getCal() >= $calorie);
+    }
+
+
+
 }
