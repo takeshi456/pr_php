@@ -7,18 +7,23 @@ class Recipe
     private string $food;
     private int $calorie;
 
-    public function __construct($food,$calorie)
+    /**
+     * @param string $food
+     * @param int $calorie
+     */
+    public function __construct(string $food, int $calorie)
     {
         $this->food = $food;
         $this->calorie = $calorie;
     }
 
-    public function getName()
+
+    public function getName(): string
     {
         return $this->food;
     }
 
-    public function getCal()
+    public function getCal(): float
     {
         return $this->calorie;
     }
