@@ -30,7 +30,7 @@ while (true) {
         echo 'Goody bye.';
         exit;
     }
-    list($ope, $x, $y) = explode(' ', $arg);
-    $calc = new Calc($ope);
-    echo $calc->calc($x, $y), PHP_EOL;
+//    list($ope, $x, $y) = explode(' ', $arg);
+//    $calc = new Calc($ope);
+//    echo $calc->calc($x, $y), PHP_EOL;
 }
