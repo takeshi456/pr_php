@@ -2,6 +2,7 @@
 require_once "vendor/autoload.php";
 
 use prphp\lesson2\Calc;
+use prphp\lesson2\Factory;
 
 //一問目
 //switch ($argv[1]) {
@@ -30,7 +31,7 @@ while (true) {
         echo 'Goody bye.';
         exit;
     }
-//    list($ope, $x, $y) = explode(' ', $arg);
-//    $calc = new Calc($ope);
-//    echo $calc->calc($x, $y), PHP_EOL;
+    list($ope, $x, $y) = explode(' ', $arg);
+    $instance = Factory::create($ope);
+    echo $instance->calc($x, $y), PHP_EOL;
 }
