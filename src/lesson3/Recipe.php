@@ -4,7 +4,13 @@ namespace prphp\lesson3;
 
 class Recipe
 {
+    /**
+     * @var string
+     */
     private string $food;
+    /**
+     * @var float|int
+     */
     private float $calorie;
 
     /**
@@ -18,11 +24,17 @@ class Recipe
     }
 
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->food;
     }
 
+    /**
+     * @return float
+     */
     public function getCal(): float
     {
         return $this->calorie;
