@@ -38,9 +38,22 @@ class MenuSet
      */
     public function getMenusByCalorie(float $calorie): array
     {
-        return array_filter($this->menuSet,fn($menu) => $menu->getCal() >= $calorie);
+        return array_filter($this->menuSet, fn($menu) => $menu->getCal() >= $calorie);
     }
 
 
-
+    /**
+     * @param callable $spec
+     * @return array
+     */
+    public function getMenusBySpec(callable $spec): array
+    {
+        $filtered = [];
+        foreach ($this->menuSet as $menu) {
+            if ($spec($menu)) {
+                $filtered[] = $menu;
+            }
+        }
+        return $filtered;
+    }
 }

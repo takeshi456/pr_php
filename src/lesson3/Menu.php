@@ -4,8 +4,17 @@ namespace prphp\lesson3;
 
 class Menu
 {
+    /**
+     * @var string
+     */
     private string $menuName;
+    /**
+     * @var string
+     */
     private string $menuType;
+    /**
+     * @var array
+     */
     private array $recipeData;
 
     /**
@@ -21,21 +30,33 @@ class Menu
     }
 
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->menuName;
     }
 
+    /**
+     * @return string
+     */
     public function getType(): string
     {
         return $this->menuType;
     }
 
+    /**
+     * @return array
+     */
     public function getRecipes(): array
     {
         return $this->recipeData;
     }
 
+    /**
+     * @return float
+     */
     public function getCal(): float
     {
         //まだわかっていない

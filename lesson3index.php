@@ -66,3 +66,19 @@ use prphp\lesson3\MenuSet;
 //$menuSet = new MenuSet([$menu1, $menu2, $menu3]);
 //$menus = $menuSet->getMenusByCalorie(131); // $menusは、100カロリー以上のメニューのリスト
 //var_dump($menus);
+
+//問題6
+$recipe1 = new Recipe("ハンバーグ", 200.5);
+$recipe2 = new Recipe("目玉焼き", 120);
+$recipe3 = new Recipe("大葉", 200.5);
+$recipe4 = new Recipe("シャケ", 10);
+$recipe5 = new Recipe("のり", 120);
+$menu1 = new Menu("ハンバーグ弁当", "洋食", [$recipe1, $recipe2]);  // $r1と$r2はレシピインスタンスとする
+$menu2 = new Menu("鮭弁当", "和食", [$recipe3, $recipe4]); // $r3とr$4はレシピインスタンスとする
+$menu3 = new Menu("のり弁当", "和食", [$recipe4, $recipe5]); // $r4と$r5はレシピインスタンスとする
+$menuSet = new MenuSet([$menu1, $menu2, $menu3]); // $menu1, $menu2, $menu3はメニューオブジェクトとする。
+
+$menus = $menuSet->getMenusBySpec(function (Menu $menu) { return true; });   // すべてのメニューを返す。
+//var_dump($menus);
+$menus2 = $menuSet->getMenusBySpec(function (Menu $menu) { return $menu->getCal() > 300; });   // 100Kcal以上のメニューを返す。
+var_dump($menus2);
