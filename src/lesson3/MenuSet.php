@@ -54,13 +54,14 @@ class MenuSet
      */
     public function getMenusBySpec(callable $spec): array
     {
-        $filtered = [];
-        foreach ($this->menuSet as $menu) {
-            if ($spec($menu)) {
-                $filtered[] = $menu;
-            }
-        }
-        return $filtered;
+        return array_filter($this->menuSet,fn($menu) => $spec($menu) === true);
+//        $filtered = [];
+//        foreach ($this->menuSet as $menu) {
+//            if ($spec($menu)) {
+//                $filtered[] = $menu;
+//            }
+//        }
+//        return $filtered;
     }
 
     public function getMenusBySpecInterface($instance): array
