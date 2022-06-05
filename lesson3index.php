@@ -6,6 +6,9 @@ use prphp\lesson3\Menu;
 use prphp\lesson3\MenuSet;
 use prphp\lesson3\CalorieOverSpec;
 use prphp\lesson3\MenuTypeSpec;
+use prphp\lesson3\AndSpec;
+use prphp\lesson3\OrSpec;
+use prphp\lesson3\NotSpec;
 
 //問題1
 //$recipe1 = new Recipe("ハンバーグ", 200.5);
@@ -117,3 +120,9 @@ $menu2 = new Menu("鮭弁当", "和食", [$recipe3, $recipe4]); // $r3とr$4は�
 $menu3 = new Menu("のり弁当", "和食", [$recipe4, $recipe5]); // $r4と$r5はレシピインスタンスとする
 $menuSet = new MenuSet([$menu1, $menu2, $menu3]); // $menu1, $menu2, $menu3はメニューオブジェクトとする。
 
+//$andMenus = $menuSet->getMenusBySpecInterface(new AndSpec(new MenuTypeSpec("和食"), new CalorieOverSpec(100)));  //和食かつ100カロリー以上のメニュー一覧を抽出
+//var_dump($andMenus);
+//$orMenus = $menuSet->getMenusBySpecInterface(new OrSpec(new MenuTypeSpec("和食"), new CalorieOverSpec(1000)));  //和食もしくは100カロリー以上のメニュー一覧を抽出
+//var_dump($orMenus);
+$notMenus = $menuSet->getMenusBySpecInterface(new NotSpec(new MenuTypeSpec("洋食"), new CalorieOverSpec(10000)));
+var_dump($notMenus);

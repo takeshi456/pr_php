@@ -1,7 +1,6 @@
 <?php
 
 namespace prphp\lesson3;
-use prphp\lesson3\Menuspec;
 
 class MenuTypeSpec implements Menuspec
 {
