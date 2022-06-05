@@ -2,8 +2,15 @@
 
 namespace prphp\lesson3;
 
+/**
+ *
+ */
 class MenuSet
 {
+
+    /**
+     * @var
+     */
     private array $menuSet;
 
     /**
@@ -22,14 +29,13 @@ class MenuSet
         return $this->menuSet;
     }
 
-
     /**
      * @param string $menuType
      * @return array
      */
     public function getMenusByType(string $menuType): array
     {
-        return array_filter($this->menuSet, fn($menu) => $menu->getType() === $menuType);
+        return array_filter($this->menuSet, fn(Menu $menu) => $menu->getType() === $menuType);
     }
 
     /**
@@ -55,5 +61,10 @@ class MenuSet
             }
         }
         return $filtered;
+    }
+
+    public function getMenusBySpecInterface($instance): array
+    {
+        return array_filter($this->menuSet,fn($menu) => $instance->satisfiedBy($menu));
     }
 }
