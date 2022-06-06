@@ -111,18 +111,18 @@ use prphp\lesson3\NotSpec;
 //var_dump($menus2);
 
 //問題8
-//$recipe1 = new Recipe("ハンバーグ", 200.5);
-//$recipe2 = new Recipe("目玉焼き", 120);
-//$recipe3 = new Recipe("大葉", 200.5);
-//$recipe4 = new Recipe("シャケ", 10);
-//$recipe5 = new Recipe("のり", 120);
-//$menu1 = new Menu("ハンバーグ弁当", "洋食", [$recipe1, $recipe2]);  // $r1と$r2はレシピインスタンスとする
-//$menu2 = new Menu("鮭弁当", "和食", [$recipe3, $recipe4]); // $r3とr$4はレシピインスタンスとする
-//$menu3 = new Menu("のり弁当", "和食", [$recipe4, $recipe5]); // $r4と$r5はレシピインスタンスとする
-//$menuSet = new MenuSet([$menu1, $menu2, $menu3]); // $menu1, $menu2, $menu3はメニューオブジェクトとする。
+$recipe1 = new Recipe("ハンバーグ", 200.5);
+$recipe2 = new Recipe("目玉焼き", 120);
+$recipe3 = new Recipe("大葉", 200.5);
+$recipe4 = new Recipe("シャケ", 10);
+$recipe5 = new Recipe("のり", 120);
+$menu1 = new Menu("ハンバーグ弁当", "洋食", [$recipe1, $recipe2]);  // $r1と$r2はレシピインスタンスとする
+$menu2 = new Menu("鮭弁当", "和食", [$recipe3, $recipe4]); // $r3とr$4はレシピインスタンスとする
+$menu3 = new Menu("のり弁当", "和食", [$recipe4, $recipe5]); // $r4と$r5はレシピインスタンスとする
+$menuSet = new MenuSet([$menu1, $menu2, $menu3]); // $menu1, $menu2, $menu3はメニューオブジェクトとする。
 
-//$andMenus = $menuSet->getMenusBySpecInterface(new AndSpec(new MenuTypeSpec("和食"), new CalorieOverSpec(200)));
-//var_dump($andMenus);
+$andMenus = $menuSet->getMenusBySpecInterface(new AndSpec(new MenuTypeSpec("和食"), new CalorieOverSpec(200)));
+var_dump($andMenus);
 //$orMenus = $menuSet->getMenusBySpecInterface(new OrSpec(new MenuTypeSpec("中華"), new CalorieOverSpec(300)));
 //var_dump($orMenus);
 //$notMenus = $menuSet->getMenusBySpecInterface(new NotSpec(new MenuTypeSpec("中華"), new CalorieOverSpec(10)));
