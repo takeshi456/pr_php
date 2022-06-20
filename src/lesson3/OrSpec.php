@@ -6,23 +6,23 @@ class OrSpec implements MenuSpec
 {
     //名前は何が最適か
     /**
-     * @var object
+     * @var menuSpec
      */
-    private object $object1;
+    private menuSpec $menuSpec1;
     /**
-     * @var object
+     * @var menuSpec
      */
-    private object $object2;
+    private menuSpec $menuSpec2;
 
 
     /**
-     * @param object $object1
-     * @param object $object2
+     * @param menuSpec $menuSpec1
+     * @param menuSpec $menuSpec2
      */
-    public function __construct(object $object1, object $object2)
+    public function __construct(menuSpec $menuSpec1, menuSpec $menuSpec2)
     {
-        $this->object1 = $object1;
-        $this->object2 = $object2;
+        $this->menuSpec1 = $menuSpec1;
+        $this->menuSpec2 = $menuSpec2;
     }
 
     /**
@@ -31,6 +31,6 @@ class OrSpec implements MenuSpec
      */
     public function satisfiedBy(Menu $menu): bool
     {
-        return ($this->object1->satisfiedBy($menu) || $this->object2->satisfiedBy($menu)) === true;
+        return $this->menuSpec1->satisfiedBy($menu) || $this->menuSpec2->satisfiedBy($menu);
     }
 }

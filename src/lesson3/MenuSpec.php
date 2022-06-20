@@ -6,7 +6,7 @@ interface MenuSpec
 {
     /**
      * メニューがある条件を満たせばtrueを返す。
-     * @param menu メニュー
+     * @param Menu $menu メニュー
      */
     public function satisfiedBy(Menu $menu): bool;
 }

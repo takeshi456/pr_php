@@ -9,12 +9,12 @@ class MenuSet
 {
 
     /**
-     * @var
+     * @var MenuSet[]
      */
     private array $menuSet;
 
     /**
-     * @param array $menuSet
+     * @param $menuSet[] $menuSet
      */
     public function __construct(array $menuSet)
     {
@@ -22,7 +22,7 @@ class MenuSet
     }
 
     /**
-     * @return array
+     * @return menuSet[]
      */
     public function getMenus(): array
     {
@@ -31,7 +31,7 @@ class MenuSet
 
     /**
      * @param string $menuType
-     * @return array
+     * @return MenuSet[]
      */
     public function getMenusByType(string $menuType): array
     {
@@ -40,32 +40,25 @@ class MenuSet
 
     /**
      * @param float $calorie
-     * @return array
+     * @return MenuSet[]
      */
     public function getMenusByCalorie(float $calorie): array
     {
-        return array_filter($this->menuSet, fn($menu) => $menu->getCal() >= $calorie);
+        return $this->getMenusBySpec(fn(Menu $menu) => $menu->getCal() >= $calorie);
     }
 
 
     /**
      * @param callable $spec
-     * @return array
+     * @return menuSet[]
      */
     public function getMenusBySpec(callable $spec): array
     {
         return array_filter($this->menuSet,fn($menu) => $spec($menu) === true);
-//        $filtered = [];
-//        foreach ($this->menuSet as $menu) {
-//            if ($spec($menu)) {
-//                $filtered[] = $menu;
-//            }
-//        }
-//        return $filtered;
     }
 
-    public function getMenusBySpecInterface($instance): array
+    public function getMenusBySpecInterface(): array
     {
-        return array_filter($this->menuSet,fn($menu) => $instance->satisfiedBy($menu));
+        return array_filter($this->menuSet,fn($menu) => $menuSpec->satisfiedBy($menu));
     }
 }

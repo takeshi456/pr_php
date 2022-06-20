@@ -6,23 +6,18 @@ class NotSpec implements MenuSpec
 {
     //名前は何が最適か
     /**
-     * @var object
+     * @var MenuSpec
      */
-    private object $object1;
+    private MenuSpec $menuSpec;
     /**
-     * @var object
-     */
-    private object $object2;
 
 
     /**
-     * @param object $object1
-     * @param object $object2
+     * @param  MenuSpec $menuSpec
      */
-    public function __construct(object $object1, object $object2)
+    public function __construct(MenuSpec $menuSpec)
     {
-        $this->object1 = $object1;
-        $this->object2 = $object2;
+        $this->menuSpec = $menuSpec;
     }
 
     /**
@@ -31,6 +26,6 @@ class NotSpec implements MenuSpec
      */
     public function satisfiedBy(Menu $menu): bool
     {
-        return ($this->object1->satisfiedBy($menu) || $this->object2->satisfiedBy($menu)) === false;
+        return !$this->menuSpec->satisfiedBy($menu);
     }
 }

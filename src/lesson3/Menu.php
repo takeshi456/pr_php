@@ -7,26 +7,26 @@ class Menu
     /**
      * @var string
      */
-    private string $menuName;
+    private string $name;
     /**
      * @var string
      */
-    private string $menuType;
+    private string $type;
     /**
      * @var array
      */
-    private array $recipeData;
+    private array $recipes;
 
     /**
-     * @param string $menuName
-     * @param string $menuType
-     * @param array $recipeData
+     * @param string $name
+     * @param string $type
+     * @param array $recipes
      */
-    public function __construct(string $menuName, string $menuType, array $recipeData)
+    public function __construct(string $name, string $type, array $recipes)
     {
-        $this->menuName = $menuName;
-        $this->menuType = $menuType;
-        $this->recipeData = $recipeData;
+        $this->name = $name;
+        $this->type = $type;
+        $this->recipes = $recipes;
     }
 
 
@@ -35,7 +35,7 @@ class Menu
      */
     public function getName(): string
     {
-        return $this->menuName;
+        return $this->name;
     }
 
     /**
@@ -43,7 +43,7 @@ class Menu
      */
     public function getType(): string
     {
-        return $this->menuType;
+        return $this->type;
     }
 
     /**
@@ -51,7 +51,7 @@ class Menu
      */
     public function getRecipes(): array
     {
-        return $this->recipeData;
+        return $this->recipes;
     }
 
     /**
@@ -59,10 +59,8 @@ class Menu
      */
     public function getCal(): float
     {
-        //まだわかっていない
-        //return array_reduce($this->recipeData, fn($recipe1, $recipe2) => $recipe1->getCal() + $recipe2->getCal());
         $array = [];
-        foreach ($this->recipeData as $recipe)
+        foreach ($this->recipes as $recipe)
         {
             $array[] = $recipe->getCal();
         }
